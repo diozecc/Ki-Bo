@@ -1,0 +1,44 @@
+<%- include('../includes/header') %>
+    <link rel="stylesheet" href="/css/evo-collections.css">
+    <%- include('../includes/nav') %>
+        <div class="evo-blog-header" style="background-image: url('<%= dataPage[0].imgTitle %>')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="evo-blog-header-content">
+                            <h1>
+                                <%= pageTitle %>
+                            </h1>
+                            <div class="evo-blog-des">
+                                <p id="contentTitle">
+                                    <%= dataPage[0].contentTitle %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <section class="main_container collection col-md-9 col-md-push-3">
+                    <div class="category-products products category-products-grids">
+                        <div class="sort-cate clearfix margin-bottom-10 hidden-xs">
+                            <div class="sort-cate-left hidden-xs">
+                                <h3>Xếp theo:</h3>
+                                <ul>
+                                    <li class="btn-quick-sort alpha-asc">
+                                        <a href="javascript:;" onclick="sortby('name-asc');" title="Tên A-Z"><i></i>Tên A-Z</a>
+                                    </li>
+                                    <li class="btn-quick-sort alpha-desc">
+                                        <a href="javascript:;" onclick="sortby('name-desc')" title="Tên Z-A"><i></i>Tên Z-A</a>
+                                    </li>
+                                    <li class="btn-quick-sort price-asc">
+                                        <a href="javascript:;" onclick="sortby('price-asc')" title="Giá thấp đến cao"><i></i>Giá thấp đến cao</a>
+                                    </li>
+                                    <li class="btn-quick-sort price-desc">
+                                        <a href="javascript:;" onclick="sortby('price-desc')" title="Giá cao xuống thấp"><i></i>Giá cao xuống thấp</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>

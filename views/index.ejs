@@ -1,0 +1,204 @@
+<%- include('./includes/header') %>
+<%- include('./includes/nav') %>
+        <section class="awe-section-1">
+            <div class="home-slider owl-carousel" data-dot="true" data-nav="false" data-lg-items='1' data-md-items='1' data-sm-items='1' data-xs-items="1" data-xss-items="1" data-margin='0' data-loop="true" data-autoplay="true" data-time="4000">
+                <div class="item">
+                    <a href="/crush80-ban-phim-co-tkl-khung-nhom-cnc-cao-cap" class="clearfix" title="Crush80 - Đặt hàng sớm">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_1.jpg?1717566580321">
+                            <source media="(min-width: 992px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_1.jpg?1717566580321">
+                            <source media="(min-width: 569px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_1.jpg?1717566580321">
+                            <source media="(min-width: 480px)" srcset="//bizweb.dktcdn.net/thumb/large/100/436/596/themes/834446/assets/slider_1.jpg?1717566580321">
+                            <img src="/img/slider_1.webp" alt="Crush80 - Đặt hàng sớm" class="lazy img-responsive center-block"/>
+                        </picture>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="/keycap-moa" class="clearfix" title="moa, keycap, cherry, dyesub">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_2.jpg?1717566580321">
+                            <source media="(min-width: 992px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_2.jpg?1717566580321">
+                            <source media="(min-width: 569px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_2.jpg?1717566580321">
+                            <source media="(min-width: 480px)" srcset="//bizweb.dktcdn.net/thumb/large/100/436/596/themes/834446/assets/slider_2.jpg?1717566580321">
+                            <img src="/img/slider_2.webp" alt="moa, keycap, cherry, dyesub" class="lazy img-responsive center-block"/>
+                        </picture>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="/bo-keycap-ridang-fading" class="clearfix" title="keycaps, cherry, elden ring">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_3.jpg?1717566580321">
+                            <source media="(min-width: 992px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_3.jpg?1717566580321">
+                            <source media="(min-width: 569px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_3.jpg?1717566580321">
+                            <source media="(min-width: 480px)" srcset="//bizweb.dktcdn.net/thumb/large/100/436/596/themes/834446/assets/slider_3.jpg?1717566580321">
+                            <img src="/img/slider_3.webp" alt="keycaps, cherry, elden ring" class="lazy img-responsive center-block"/>
+                        </picture>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="/bo-keycap-cherry-retro-100" class="clearfix" title="Keycap retro100">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_4.jpg?1717566580321">
+                            <source media="(min-width: 992px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_4.jpg?1717566580321">
+                            <source media="(min-width: 569px)" srcset="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/slider_4.jpg?1717566580321">
+                            <source media="(min-width: 480px)" srcset="//bizweb.dktcdn.net/thumb/large/100/436/596/themes/834446/assets/slider_4.jpg?1717566580321">
+                            <img src="/img/slider_4.webp" alt="Keycap retro100" class="lazy img-responsive center-block"/>
+                        </picture>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="awe-section-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section_product section_product_best_sell clearfix">
+                            <div class="section-head clearfix text-center">
+                                <h2 class="title_blog">
+                                    <a href="san-pham-moi" title="Sản phẩm Mới">
+                                        Sản phẩm <strong>Mới</strong>
+                                    </a>
+                                </h2>
+                                <div class="viewallcat hidden-xs"></div>
+                            </div>
+                            <div class="product-blocks clearfix">
+                                <div class="evo-owl-product owl-carousel not-dqowl clearfix" data-dot="false" data-nav="true" data-lg-items='4' data-md-items='4' data-sm-items='3' data-xs-items="2" data-xss-items="2" data-margin='10' data-loop="false" data-autoplay="false">
+                                    <% product.forEach((product)=> { 
+                                        if(product.new == "true" ){ %>
+                                    <div class="product-card">
+                                        <a class="product-url" href="<%= product.url %>" title="<%= product.title %>"></a>
+                                        <div class="product-card__inner">
+                                            <div class="product-card__image">
+                                                <picture>
+                                                    <img src="<%= product.image_front %>" class="product-card-image-front img-responsive center-block" alt="<%= product.title %>"/>
+                                                </picture>
+                                                <picture>
+                                                    <img src="<%= product.image_back %>" class="product-card-image-back img-responsive center-block" alt="<%= product.title %>"/>
+                                                </picture>
+                                            </div>
+                                            <h4 class="product-single__series"><%= product.series %></h4>
+                                            <h3 class="product-card__title"><%= product.title %></h3>
+                                            <div class="product-price">
+                                                <strong><%= product.price %></strong>
+                                            </div>
+                                        </div>
+                                        <form action="/cart/add" method="post" enctype="multipart/form-data" class="hidden-md variants form-nut-grid form-ajaxtocart" data-id="product-actions-35856964">
+                                            <div class="product-card__actions">
+                                                <a class="button ajax_addtocart" href="<%= product.url %>" title="Tùy chọn">Tùy chọn</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <% }}) %>
+                                </div>
+                            </div>
+                            <a href="san-pham-moi" title="Xem tất cả Sản phẩm Mới" class="evo-button mobile-viewmore">
+                                Xem tất cả . Sản phẩm <strong>Mới</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="awe-section-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section_product section_product_best_sell clearfix">
+                            <div class="section-head clearfix text-center">
+                                <h2 class="title_blog">
+                                    <a href="ban-phim-co" title="Bàn phím cơ Custom">
+                                        Bàn phím cơ <strong>Custom</strong>
+                                    </a>
+                                </h2>
+                                <div class="viewallcat hidden-xs"></div>
+                            </div>
+                            <div class="product-blocks clearfix">
+                                <div class="evo-owl-product owl-carousel not-dqowl clearfix" data-dot="false" data-nav="true" data-lg-items='4' data-md-items='4' data-sm-items='3' data-xs-items="2" data-xss-items="2" data-margin='10' data-loop="false" data-autoplay="false">
+                                    <% product.forEach((product)=> { 
+                                        if(product.class == "ban-phim-co"){ %>
+                                            <div class="product-card">
+                                                <a class="product-url" href="<%= product.url %>" title="<%= product.title %>"></a>
+                                                <div class="product-card__inner">
+                                                    <div class="product-card__image">
+                                                        <picture>
+                                                            <img src="<%= product.image_front %>" class="product-card-image-front img-responsive center-block" alt="<%= product.title %>"/>
+                                                        </picture>
+                                                        <picture>
+                                                            <img src="<%= product.image_back %>" class="product-card-image-back img-responsive center-block" alt="<%= product.title %>"/>
+                                                        </picture>
+                                                    </div>
+                                                    <h4 class="product-single__series"><%= product.series %></h4>
+                                                    <h3 class="product-card__title"><%= product.title %></h3>
+                                                    <div class="product-price">
+                                                        <strong><%= product.price %></strong>
+                                                    </div>
+                                                </div>
+                                                <form action="/cart/add" method="post" enctype="multipart/form-data" class="hidden-md variants form-nut-grid form-ajaxtocart" data-id="product-actions-35856964">
+                                                    <div class="product-card__actions">
+                                                        <a class="button ajax_addtocart" href="<%= product.url %>" title="Tùy chọn">Tùy chọn</a>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                    <% }}) %>
+                                </div>
+                            </div>
+                            <a href="ban-phim-co" title="Xem tất cả Bàn phím cơ Custom" class="evo-button mobile-viewmore">
+                                Xem tất cả . Bàn phím cơ <strong>Custom</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="awe-section-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section_product section_product_best_sell clearfix">
+                            <div class="section-head clearfix text-center">
+                                <h2 class="title_blog">
+                                    <a href="keycap-cherry" title="Bộ sưu tập keycap Cherry">
+                                        Bộ sưu tập keycap <strong>Cherry</strong>
+                                    </a>
+                                </h2>
+                                <div class="viewallcat hidden-xs"></div>
+                            </div>
+                            <div class="product-blocks clearfix">
+                                <div class="evo-owl-product owl-carousel not-dqowl clearfix" data-dot="false" data-nav="true" data-lg-items='4' data-md-items='4' data-sm-items='3' data-xs-items="2" data-xss-items="2" data-margin='10' data-loop="false" data-autoplay="false">
+                                    <% product.forEach((product)=> { 
+                                        if(product.class == "keycap-cherry"){ %>
+                                            <div class="product-card">
+                                                <a class="product-url" href="<%= product.url %>" title="<%= product.title %>"></a>
+                                                <div class="product-card__inner">
+                                                    <div class="product-card__image">
+                                                        <picture>
+                                                            <img src="<%= product.image_front %>" class="product-card-image-front img-responsive center-block" alt="<%= product.title %>"/>
+                                                        </picture>
+                                                        <picture>
+                                                            <img src="<%= product.image_back %>" class="product-card-image-back img-responsive center-block" alt="<%= product.title %>"/>
+                                                        </picture>
+                                                    </div>
+                                                    <h4 class="product-single__series"><%= product.series %></h4>
+                                                    <h3 class="product-card__title"><%= product.title %></h3>
+                                                    <div class="product-price">
+                                                        <strong><%= product.price %></strong>
+                                                    </div>
+                                                </div>
+                                                <form action="/cart/add" method="post" enctype="multipart/form-data" class="hidden-md variants form-nut-grid form-ajaxtocart" data-id="product-actions-35856964">
+                                                    <div class="product-card__actions">
+                                                        <a class="button ajax_addtocart" href="<%= product.url %>" title="Tùy chọn">Tùy chọn</a>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                    <% }}) %>
+                                </div>
+                            </div>
+                            <a href="ban-phim-co" title="Xem tất cả Bộ sưu tập keycap Cherry" class="evo-button mobile-viewmore">
+                                Xem tất cả . Bộ sưu tập keycap <strong>Cherry</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<%- include('./includes/footer') %>

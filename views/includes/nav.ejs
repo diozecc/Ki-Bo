@@ -1,0 +1,50 @@
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="row top-header">
+                <div class="col-md-5 col-sm-12 col-xs-12 left-header hidden-sm hidden-xs">
+                    <div class="text">
+                        <span>Hotline tư vấn:</span>
+                        <a href="tel:0123456789" class="text-none">0123456789</a>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <div class="logo evo-flexitem evo-flexitem-fill">
+                        <a href="/" class="logo-wrapper" title="Kicap">
+                            <img src="/img/logo.png" alt="Kicap" style="width: 120px;" class="img-responsive center-block">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-12 col-xs-12 right-header hidden-sm hidden-xs">
+                    <ul class="justify-end">
+                        <li class="site-nav-item site-nav-account">
+                            <a href="/admin/login" title="Tài khoản" rel="nofollow" class="text-none">Administrator</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container nav-evo-watch">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <ul id="nav" class="nav">
+                        <% nav.forEach(item => { %>
+                            <li class="nav-item <%= item.items ? 'has-childs' : '' %>">
+                                <a class="nav-link" href="<%= item.href %>" title="<%= item.pageTitle %>"><%= item.pageTitle %> <% if (item.items) { %><i class="fa fa-angle-down" data-toggle="dropdown"></i><% } %></a>
+                                <% if (item.items) { %>
+                                    <ul class="dropdown-menu">
+                                        <% item.items.forEach(subItem => { %>
+                                            <li class="nav-item-lv2"><a class="nav-link" href="<%= subItem.href %>" title="<%= subItem.pageTitle %>"><%= subItem.pageTitle %></a></li>
+                                        <% }) %>
+                                    </ul>
+                                <% } %>
+                            </li>
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="line container"></div>
+    </header>

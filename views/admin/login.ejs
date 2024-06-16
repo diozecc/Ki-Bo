@@ -1,0 +1,38 @@
+<%- include('../includes/header') %>
+    <link rel="stylesheet" href="/css/evo-collections.css">
+    <%- include('../includes/nav') %>
+<div class="container margin-bottom-20 margin-top-30">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="page-login account-box-shadow">
+				<div id="login">
+					<div class="text-center margin-bottom-30">
+						<h1 class="title-head">Đăng nhập tài khoản</h1>
+					</div>
+					</div>
+                    <form method="POST" action="/admin/login">
+					<div class="form-signup clearfix">
+						<fieldset class="form-group margin-bottom-20">
+							<label>Tài khoản<span class="required">*</span></label>
+							<input placeholder="Tên đăng nhập" type="text" class="form-control form-control-lg" name="username" id="username">
+						</fieldset>
+						<fieldset class="form-group">
+							<label>Mật khẩu<span class="required">*</span></label>
+							<input placeholder="Nhập Mật khẩu" type="password" class="form-control form-control-lg"  name="password" id="password">
+						</fieldset>
+                        <% if (typeof error !== 'undefined' && error) { %>
+                            <div class="alert alert-danger" role="alert">
+                                <%= error %>
+                            </div>
+                        <% } %>
+						<div class="pull-xs-left text-center" style="margin-top: 15px;">
+							<button class="btn btn-style btn-blues" type="submit" value="Đăng nhập">Đăng nhập</button>
+						</div>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%- include('../includes/footer') %>
