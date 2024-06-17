@@ -4,24 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item Management</title>
+    <title>Quản lý sản phẩm</title>
     <link href="/productlist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/productlist/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="/productlist/css/sb-admin.css" rel="stylesheet">
     <link href="/productlist/css/custom.css" rel="stylesheet">
+    <link rel="icon" href="/img/icon.svg">
 </head>
 
 <body>
     <div id="wrapper">
         <nav class="navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Administrator</a>
+                <a class="navbar-brand" href="/">Shop</a>
             </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
@@ -40,73 +35,56 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Item Management</h1>
+                    <h1 class="page-header">Quản lý sản phẩm</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-info">
-                        <div class="panel-heading">
-                            List Items
-                        </div>
+                        <div class="panel-heading">Danh sách sản phẩm</div>
                         <div class="panel-body">
-                            <form role="form" class="form-inline zt-form" id="zt-form" action="" method="post">
+                            <form role="form" class="form-inline zt-form" id="zt-form" method="POST"
+                                action="/admin/add-product">
                                 <div class="zcontrols">
-                                    <select name="action" class="form-control slbAction">
-                                        <option value="">Bulk Action</option>
-                                        <option value="admin123/item/change-status/active">Active</option>
-                                        <option value="admin123/item/change-status/inactive">InActive</option>
-                                        <option value="admin123/item/save-ordering/">Change Ordering</option>
-                                        <option value="admin123/item/delete/">Delete</option>
+                                    <select name="action" class="form-control slbAction" id="action"
+                                        onchange="filterProducts()">
+                                        <option value="all">Tất cả</option>
+                                        <option value="keycap-cherry">Keycap Cherry</option>
+                                        <option value="keycap-moa">Keycap MOA</option>
+                                        <option value="keycap-oem">Keycap OEM</option>
+                                        <option value="keycap-xda">Keycap XDA</option>
+                                        <option value="keycap-sa">Keycap SA</option>
+                                        <option value="ban-phim-co">Bàn phím</option>
+                                        <option value="pre-order">Oder</option>
+                                        <option value="chuot">Chuột</option>
                                     </select>
                                     <div class="col-sm-3 slbAction">
-                                        <form action="admin123/item/all" method="GET">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="search"
-                                                    placeholder="Search for..." value="">
-                                                <input type="hidden" value="all">
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-info" type="submit">Search</button>
-                                                </span>
-                                            </div>
-                                        </form>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="search" id="searchInput"
+                                                placeholder="Tìm kiếm..." onkeyup="searchProducts()">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-info" type="button"
+                                                    onclick="searchProducts()">Tìm</button>
+                                            </span>
+                                        </div>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" type="button" class="btn btn-warning btn-addNew" data-toggle="modal" data-target="#itemModal" onclick="showForm(null)">Add New</a>
+                                        <a href="#" type="button" class="btn btn-warning btn-addNew" data-toggle="modal"
+                                            onclick=" showForm(null)" data-target="#itemModal">Thêm sản phẩm</a>
                                     </div>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Name</th>
-                                                <th>Status</th>
-                                                <th>Ordering</th>
-                                                <th>Action</th>
+                                                <th>Id</th>
+                                                <th>Tên sản phẩm</th>
+                                                <th>Loại</th>
+                                                <th>Giá</th>
+                                                <th>Hành động</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Super Admin</td>
-                                                <td>
-                                                    <a
-                                                        href="admin123/item/change-status/5a9e5a96da67bc078421d7d6/active">
-                                                        <span class="label label-success">active</span>
-                                                    </a>
-                                                </td>
-                                                <td><input type="number" value="2" class="text-center ordering"></td>
-                                                <td>
-                                                    <a href="#" type="button" class="btn btn-warning btn-sm"
-                                                        data-toggle="modal" data-target="#itemModal"
-                                                        onclick="showForm('5a9e5a96da67bc078421d7d6')">Edit</a>
-                                                    <a href="admin123/item/delete/5a9e5a96da67bc078421d7d6"
-                                                        type="button"
-                                                        class="btn btn-danger btn-sm btn-delete">Delete</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+                                        <tbody id="productTableBody"></tbody>
                                     </table>
                                     <!-- Modal -->
                                     <div class="modal fade" id="itemModal" tabindex="-1" role="dialog"
@@ -114,34 +92,71 @@
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="itemModalLabel">Item Form</h5>
+                                                    <h5 class="modal-title" id="itemModalLabel">Sản phẩm</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form id="itemForm">
+                                                    <form id="itemForm" method="POST">
                                                         <div class="form-group">
-                                                            <label for="itemName">Name</label>
-                                                            <input type="text" class="form-control" id="itemName"
-                                                                name="name" required>
+                                                            <label for="title">Tên sản phẩm</label>
+                                                            <input type="text" class="form-control" id="title"
+                                                                name="title" required>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="itemStatus">Status</label>
-                                                            <select class="form-control" id="itemStatus" name="status"
+                                                            <label for="class">Loại</label>
+                                                            <select class="form-control" id="class" name="class"
                                                                 required>
-                                                                <option value="active">Active</option>
-                                                                <option value="inactive">Inactive</option>
+                                                                <option value="keycap-cherry">Keycap Cherry</option>
+                                                                <option value="keycap-moa">Keycap MOA</option>
+                                                                <option value="keycap-oem">Keycap OEM</option>
+                                                                <option value="keycap-xda">Keycap XDA</option>
+                                                                <option value="keycap-sa">Keycap SA</option>
+                                                                <option value="ban-phim-co">Bàn phím</option>
+                                                                <option value="pre-order">Oder</option>
+                                                                <option value="chuot">Chuột</option>
                                                             </select>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="itemOrdering">Ordering</label>
-                                                            <input type="number" class="form-control" id="itemOrdering"
-                                                                name="ordering" required>
+                                                            <label for="price">Giá</label>
+                                                            <input type="number" class="form-control" id="price"
+                                                                name="price" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="series">Bộ</label>
+                                                            <select class="form-control" id="series" name="series"
+                                                                required>
+                                                                <option value="Keycap bộ">Keycap bộ</option>
+                                                                <option value="Bàn phím cơ">Bàn phím cơ</option>
+                                                                <option value="Chuột máy tính">Chuột máy tính</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="url">Liên kết sản phẩm</label>
+                                                            <input type="text" class="form-control" id="url" name="url"
+                                                                required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="image_front">Ảnh 1</label>
+                                                            <input type="text" class="form-control" id="image_front"
+                                                                name="image_front" value="" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="image_back">Ảnh 2</label>
+                                                            <input type="text" class="form-control" id="image_back"
+                                                                name="image_back" value="" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="new">Trạng thái</label>
+                                                            <select class="form-control" id="new" name="new" required>
+                                                                <option value="true">Mới</option>
+                                                                <option value="false">Cũ</option>
+                                                            </select>
                                                         </div>
                                                         <input type="hidden" id="itemId" name="id">
-                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                        <input type="submit" class="btn btn-primary" id="button" name="button">
                                                     </form>
                                                 </div>
                                             </div>
@@ -157,36 +172,70 @@
     </div>
     <script src="/productlist/js/jquery-1.10.2.js"></script>
     <script src="/productlist/js/bootstrap.min.js"></script>
-    <script src="/productlist/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="/productlist/js/sb-admin.js"></script>
-    <script src="/productlist/js/jquery-ui.js"></script>
-    <script src="/productlist/js/custom.js"></script>
     <script>
-        function showForm(itemId) {
-            if (itemId) {
-                const itemData = {
-                    id: itemId,
-                    name: 'Super Admin',
-                    status: 'active',
-                    ordering: 2
-                };
-                document.getElementById('itemId').value = itemData.id;
-                document.getElementById('itemName').value = itemData.name;
-                document.getElementById('itemStatus').value = itemData.status;
-                document.getElementById('itemOrdering').value = itemData.ordering;
+
+        const products = JSON.parse('<%- JSON.stringify(products) %>');
+
+        function loadProductTable(filteredProducts) {
+            const tableBody = document.getElementById('productTableBody');
+            tableBody.innerHTML = '';
+            (filteredProducts || products).forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+            <td>${product.id}</td>
+            <td>${product.title}</td>
+            <td><span class="label label-success">${product.isclass}</span></td>
+            <td><input type="text" value="${product.price}" class="text-center" size="4" style="border:0;" readonly="readonly"></td>
+            <td>
+                <input type="hidden" class="itemUrl" value="${product.url}">
+                <a href="#" type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#itemModal" onclick="showForm('${product.url}')">Sửa</a>
+                <a href="delete/${product.url}" type="button" class="btn btn-danger btn-sm btn-delete">Xoá</a>
+            </td>
+        `;
+                tableBody.appendChild(row);
+            });
+        }
+        loadProductTable();
+        function showForm(itemUrl) {
+            const filteredProducts = products.filter(product => product.url.toLowerCase().includes(itemUrl));
+            const product = filteredProducts[0];
+            if (product) {
+                document.getElementById('itemId').value = product.id;
+                document.getElementById('title').value = product.title;
+                document.getElementById('class').value = product.isclass;
+                document.getElementById('price').value = product.price;
+                document.getElementById('series').value = product.series;
+                document.getElementById('url').value = product.url;
+                document.getElementById('image_front').value = product.image_front;
+                document.getElementById('image_back').value = product.image_back;
+                document.getElementById('new').value = product.new;
+                document.getElementById('button').value = 'Cập nhật';
             } else {
-                document.getElementById('itemForm').reset();
                 document.getElementById('itemId').value = '';
+                document.getElementById('title').value = '';
+                document.getElementById('class').value = '';
+                document.getElementById('price').value = '';
+                document.getElementById('series').value = '';
+                document.getElementById('url').value = '';
+                document.getElementById('image_front').value = '';
+                document.getElementById('image_back').value = '';
+                document.getElementById('new').value = '';
+                document.getElementById('button').value = 'Thêm';
             }
         }
-        document.getElementById('itemForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            console.log('Form submitted');
-            $('#itemModal').modal('hide');
-        });
+
+        function filterProducts(){
+            const action = document.getElementById('action').value;
+            const filteredProducts = products.filter(product => action === 'all' || product.isclass === action);
+            loadProductTable(filteredProducts);
+        }
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const filteredProducts = products.filter(product => product.title.toLowerCase().includes(searchTerm));
+            loadProductTable(filteredProducts);
+        }
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

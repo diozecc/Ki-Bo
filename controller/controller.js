@@ -1,12 +1,17 @@
 const { Services } = require('../models/data')
 const service = new Services()
+const fs = require('fs')
+const path = require('path')
+const sort = path.join(path.dirname(process.mainModule.filename), 'data', 'sort.json')
+const sortList = require('../data/sort.json')
 
-let productData = null
+
+let productList = null
 
 exports.updateProductMiddleware = async (req, res, next) => {
     try {
-        const updatedProductData = await service.getProducts()
-        productData = updatedProductData
+        const updatedproductList = await service.getProducts()
+        productList = updatedproductList
         next()
     } catch (error) {
         console.error('Lỗi khi cập nhật dữ liệu sản phẩm:', error);
@@ -17,7 +22,7 @@ exports.updateProductMiddleware = async (req, res, next) => {
 exports.getShop = async (req, res, next) => {;
     try {
         const nav = await service.getNav()
-        res.render('', { pageTitle: 'Ki-Bo', nav, product: productData })
+        res.render('', { pageTitle: 'Ki-Bo', nav, product: productList })
     } catch (error) {
         next(error)
     }
@@ -51,7 +56,7 @@ exports.getKeycapBO = async (req, res, next) => {
             }
         })
 
-        res.render('products/products', { pageTitle, nav, product: productData, productType, dataPage})
+        res.render('products/products', { pageTitle, nav, product: productList, productType, dataPage, sortList })
     } catch (error) {
         next(error)
     }
@@ -70,7 +75,6 @@ exports.postAdmin = async (req, res, next) => {
     try {
         const username = req.body.username
         const password = req.body.password
-        console.log(username, password)
         if (username === 'admin' && password === 'admin') {
             res.redirect('/admin/add-product')
         } else {
@@ -82,15 +86,54 @@ exports.postAdmin = async (req, res, next) => {
     }
 
 }
+
 exports.getAddProduct = async (req, res, next) => {
     try {
         const nav = await service.getNav()
-        res.render('admin/add-product', { pageTitle: 'Add Product', nav})
+        res.render('admin/add-product', { pageTitle: 'Add Product', nav, products: productList})
     } catch (error) {
         next(error)
     }
 
 }
+
+exports.postAddProduct = async (req, res, next) => {
+    try {
+        const id = req.body.id
+        const url = req.body.url
+        const title = req.body.title
+        const image_front = req.body.image_front
+        const image_back = req.body.image_back
+        const series = req.body.series
+        const price = req.body.price
+        const isclass = req.body.class
+        const isNew = req.body.new
+        const button = req.body.button
+        if(button === 'Thêm'){
+            service.addProduct({ url, title, image_front, image_back, series, price, isclass, isNew})
+        }else if(button === 'Cập nhật'){
+            service.updateProduct({ id, url, title, image_front, image_back, series, price, isclass, isNew })
+        }
+        res.redirect('/admin/add-product')
+    } catch (error) {
+        next(error)
+    }
+
+}
+
+exports.getDeteleProduct = async (req, res, next) => {
+    try {
+        const productType = req.params.type;
+        const product = productList.find(e => e.url === productType)
+        if (product) {
+            service.deleteProduct(product.id)
+        }
+        res.redirect('/admin/add-product')
+    } catch (error) {
+        next(error)
+    }
+}
+
 exports.get404 = async (req, res, next) => {
     try {
         const nav = await service.getNav()

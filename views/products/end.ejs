@@ -2,432 +2,21 @@
     <script src="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/search_filter.js?1717566580321"
         type="text/javascript"></script>
     <div class="aside-filter clearfix">
-        <div class="heading">Tìm theo
-        </div>
         <div class="aside-hidden-mobile">
             <div class="filter-container">
-                <div class="filter-containers">
-                    <div class="filter-container__selected-filter" style="display: none;">
-                        <div class="filter-container__selected-filter-header clearfix">
-                            <span class="filter-container__selected-filter-header-title">Bạn chọn</span>
-                            <a href="javascript:void(0)" onclick="clearAllFiltered()"
-                                class="filter-container__clear-all" title="Bỏ hết">
-                                Bỏ hết <i class="fa fa-angle-right"></i>
-                            </a>
-                        </div>
-                        <div class="filter-container__selected-filter-list">
-                            <ul></ul>
-                        </div>
-                    </div>
-                </div>
                 <div class="clearfix"></div>
-                <aside class="aside-item filter-type">
-                    <div class="aside-title">Trạng thái tồn kho
-                    </div>
-                    <div class="aside-content filter-group">
-                        <ul class="filter-type">
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <label data-filter="available" for="filter-available">
-                                    <input type="checkbox" id="filter-available"
-                                        onchange="toggleFilter(this)" data-group="Trạng thái tồn kho"
-                                        data-field="available" data-text="available" value="(>0)"
-                                        data-operator="OR">
-                                    <i class="fa"></i>
-                                    Hàng có sẵn
-
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
                 <aside class="aside-item filter-tag-style-1 tag-filtster">
-                    <div class="aside-title">Tags
-                    </div>
+                    <div class="aside-title">Tags</div>
                     <div class="aside-content filter-group">
-                        <ul>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-cherry">
-                                        <input type="checkbox" id="filter-cherry"
-                                            onchange="toggleFilter(this)" data-group="tag2"
-                                            data-field="tags" data-text="cherry" value="(cherry)"
-                                            data-operator="OR">
-                                        <i class="fa"></i>
-                                        cherry
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-sa">
-                                        <input type="checkbox" id="filter-sa"
-                                            onchange="toggleFilter(this)" data-group="tag2"
-                                            data-field="tags" data-text="sa" value="(sa)"
-                                            data-operator="OR">
-                                        <i class="fa"></i>
-                                        sa
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-oem">
-                                        <input type="checkbox" id="filter-oem"
-                                            onchange="toggleFilter(this)" data-group="tag2"
-                                            data-field="tags" data-text="oem" value="(oem)"
-                                            data-operator="OR">
-                                        <i class="fa"></i>
-                                        oem
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-asa">
-                                        <input type="checkbox" id="filter-asa"
-                                            onchange="toggleFilter(this)" data-group="tag2"
-                                            data-field="tags" data-text="asa" value="(asa)"
-                                            data-operator="OR">
-                                        <i class="fa"></i>
-                                        asa
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-dyesub">
-                                        <input type="checkbox" id="filter-dyesub"
-                                            onchange="toggleFilter(this)" data-group="tag2"
-                                            data-field="tags" data-text="dyesub" value="(dyesub)"
-                                            data-operator="OR">
-                                        <i class="fa"></i>
-                                        dyesub
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-doubleshot">
-                                        <input type="checkbox" id="filter-doubleshot"
-                                            onchange="toggleFilter(this)" data-group="tag2"
-                                            data-field="tags" data-text="doubleshot"
-                                            value="(doubleshot)" data-operator="OR">
-                                        <i class="fa"></i>
-                                        doubleshot
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-pbt">
-                                        <input type="checkbox" id="filter-pbt"
-                                            onchange="toggleFilter(this)" data-group="tag2"
-                                            data-field="tags" data-text="pbt" value="(pbt)"
-                                            data-operator="OR">
-                                        <i class="fa"></i>
-                                        pbt
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-abs">
-                                        <input type="checkbox" id="filter-abs"
-                                            onchange="toggleFilter(this)" data-group="tag2"
-                                            data-field="tags" data-text="abs" value="(abs)"
-                                            data-operator="OR">
-                                        <i class="fa"></i>
-                                        abs
-                                    </label>
-                                </span>
-                            </li>
+                        <ul id="tagFilters">
                         </ul>
                     </div>
                 </aside>
-                <aside class="aside-item filter-vendor">
-                    <div class="aside-title">Thương hiệu
-                    </div>
-                    <div class="aside-content filter-group">
-                        <ul class="filter-vendor">
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="aifei" for="filter-aifei" class="aifei">
-                                    <input type="checkbox" id="filter-aifei"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="Aifei"
-                                        value="(&#34;Aifei&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Aifei
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="aifei sa" for="filter-aifei-sa" class="aifei-sa">
-                                    <input type="checkbox" id="filter-aifei-sa"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="Aifei SA"
-                                        value="(&#34;Aifei SA&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Aifei SA
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="cat keys" for="filter-cat-keys" class="cat-keys">
-                                    <input type="checkbox" id="filter-cat-keys"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="Cat Keys"
-                                        value="(&#34;Cat Keys&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Cat Keys
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="cmk" for="filter-cmk" class="cmk">
-                                    <input type="checkbox" id="filter-cmk" onchange="toggleFilter(this)"
-                                        data-group="Hãng" data-field="vendor.filter_key" data-text="CMK"
-                                        value="(&#34;CMK&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    CMK
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="dagk" for="filter-dagk" class="dagk">
-                                    <input type="checkbox" id="filter-dagk"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="DAGK"
-                                        value="(&#34;DAGK&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    DAGK
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="gmk clone" for="filter-gmk-clone" class="gmk-clone">
-                                    <input type="checkbox" id="filter-gmk-clone"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="Gmk Clone"
-                                        value="(&#34;Gmk Clone&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Gmk Clone
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="jkdk" for="filter-jkdk" class="jkdk">
-                                    <input type="checkbox" id="filter-jkdk"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="JKDK"
-                                        value="(&#34;JKDK&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    JKDK
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="m7" for="filter-m7" class="m7">
-                                    <input type="checkbox" id="filter-m7" onchange="toggleFilter(this)"
-                                        data-group="Hãng" data-field="vendor.filter_key" data-text="M7"
-                                        value="(&#34;M7&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    M7
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="mg" for="filter-mg" class="mg">
-                                    <input type="checkbox" id="filter-mg" onchange="toggleFilter(this)"
-                                        data-group="Hãng" data-field="vendor.filter_key" data-text="MG"
-                                        value="(&#34;MG&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    MG
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="mintcaps" for="filter-mintcaps" class="mintcaps">
-                                    <input type="checkbox" id="filter-mintcaps"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="Mintcaps"
-                                        value="(&#34;Mintcaps&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Mintcaps
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="soy sauce" for="filter-soy-sauce" class="soy-sauce">
-                                    <input type="checkbox" id="filter-soy-sauce"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="Soy Sauce"
-                                        value="(&#34;Soy Sauce&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Soy Sauce
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="stooges" for="filter-stooges" class="stooges">
-                                    <input type="checkbox" id="filter-stooges"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="Stooges"
-                                        value="(&#34;Stooges&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Stooges
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="titan nation" for="filter-titan-nation"
-                                    class="titan-nation">
-                                    <input type="checkbox" id="filter-titan-nation"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="Titan Nation"
-                                        value="(&#34;Titan Nation&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Titan Nation
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="tut" for="filter-tut" class="tut">
-                                    <input type="checkbox" id="filter-tut" onchange="toggleFilter(this)"
-                                        data-group="Hãng" data-field="vendor.filter_key" data-text="TUT"
-                                        value="(&#34;TUT&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    TUT
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="wu liqi keycap" for="filter-wu-liqi-keycap"
-                                    class="wu-liqi-keycap">
-                                    <input type="checkbox" id="filter-wu-liqi-keycap"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="Wu Liqi Keycap"
-                                        value="(&#34;Wu Liqi Keycap&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Wu Liqi Keycap
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="wukds" for="filter-wukds" class="wukds">
-                                    <input type="checkbox" id="filter-wukds"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="Wukds"
-                                        value="(&#34;Wukds&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Wukds
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="xt-design" for="filter-xt-design" class="xt-design">
-                                    <input type="checkbox" id="filter-xt-design"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="XT-Design"
-                                        value="(&#34;XT-Design&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    XT-Design
-                                </label>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green ">
-                                <label data-filter="yiwu" for="filter-yiwu" class="yiwu">
-                                    <input type="checkbox" id="filter-yiwu"
-                                        onchange="toggleFilter(this)" data-group="Hãng"
-                                        data-field="vendor.filter_key" data-text="Yiwu"
-                                        value="(&#34;Yiwu&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Yiwu
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
+
                 <aside class="aside-item filter-price">
-                    <div class="aside-title">Giá sản phẩm
-                    </div>
+                    <div class="aside-title">Giá sản phẩm</div>
                     <div class="aside-content filter-group">
-                        <ul>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-duoi-100-000d">
-                                        <input type="checkbox" id="filter-duoi-100-000d"
-                                            onchange="toggleFilter(this);" data-group="Khoảng giá"
-                                            data-field="price_min" data-text="Dưới 100.000đ"
-                                            value="(<100000)" data-operator="OR">
-                                        <i class="fa"></i>
-                                        Giá dưới 100.000đ
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-100-000d-200-000d">
-                                        <input type="checkbox" id="filter-100-000d-200-000d"
-                                            onchange="toggleFilter(this)" data-group="Khoảng giá"
-                                            data-field="price_min" data-text="100.000đ - 200.000đ"
-                                            value="(>=100000 AND <=200000)" data-operator="OR">
-                                        <i class="fa"></i>
-                                        100.000đ - 200.000đ
-
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-200-000d-300-000d">
-                                        <input type="checkbox" id="filter-200-000d-300-000d"
-                                            onchange="toggleFilter(this)" data-group="Khoảng giá"
-                                            data-field="price_min" data-text="200.000đ - 300.000đ"
-                                            value="(>=200000 AND <=300000)" data-operator="OR">
-                                        <i class="fa"></i>
-                                        200.000đ - 300.000đ
-
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-300-000d-500-000d">
-                                        <input type="checkbox" id="filter-300-000d-500-000d"
-                                            onchange="toggleFilter(this)" data-group="Khoảng giá"
-                                            data-field="price_min" data-text="300.000đ - 500.000đ"
-                                            value="(>=300000 AND <=500000)" data-operator="OR">
-                                        <i class="fa"></i>
-                                        300.000đ - 500.000đ
-
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-500-000d-1-000-000d">
-                                        <input type="checkbox" id="filter-500-000d-1-000-000d"
-                                            onchange="toggleFilter(this)" data-group="Khoảng giá"
-                                            data-field="price_min" data-text="500.000đ - 1.000.000đ"
-                                            value="(>=500000 AND <=1000000)" data-operator="OR">
-                                        <i class="fa"></i>
-                                        500.000đ - 1.000.000đ
-                                    </label>
-                                </span>
-                            </li>
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <span>
-                                    <label for="filter-tren1-000-000d">
-                                        <input type="checkbox" id="filter-tren1-000-000d"
-                                            onchange="toggleFilter(this)" data-group="Khoảng giá"
-                                            data-field="price_min" data-text="Trên 1.000.000đ"
-                                            value="(>1000000)" data-operator="OR">
-                                        <i class="fa"></i>
-                                        Giá trên 1.000.000đ
-                                    </label>
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
-                <aside class="aside-item filter-type">
-                    <div class="aside-title">Loại
-                    </div>
-                    <div class="aside-content filter-group">
-                        <ul class="filter-type">
-                            <li class="filter-item filter-item--check-box filter-item--green">
-                                <label data-filter="keycap bộ" for="filter-keycap-bo">
-                                    <input type="checkbox" id="filter-keycap-bo"
-                                        onchange="toggleFilter(this)" data-group="Loại"
-                                        data-field="product_type.filter_key" data-text="Keycap bộ"
-                                        value="(&#34;Keycap bộ&#34;)" data-operator="OR">
-                                    <i class="fa"></i>
-                                    Keycap bộ
-                                </label>
-                            </li>
+                        <ul id="priceFilters">
                         </ul>
                     </div>
                 </aside>
@@ -440,4 +29,127 @@
 </div>
 </div>
 </div>
+
+<script>
+    const products = JSON.parse('<%- JSON.stringify(product) %>');
+    const productType = '<%= productType %>';
+    const tagSort = JSON.parse('<%- JSON.stringify(sortList) %>');
+
+
+    function loadProductList() {
+        const productList = document.getElementById('product-container');
+        productList.innerHTML = '';
+        const row = document.createElement('div');
+        row.classList.add('row');
+        products.forEach(product => {
+            if (productType === product.isclass) {
+                const productItem = document.createElement('div');
+                productItem.classList.add('col-xs-6', 'col-sm-4', 'col-md-4', 'col-lg-4');
+                productItem.classList.add('product-item');
+                productItem.innerHTML = `
+                <div class="product-card">
+                    <a class="product-url" href="${product.url}" title="${product.title}"></a>
+                    <div class="product-card__inner">
+                        <div class="product-card__image">
+                            <picture>
+                                <img src="${product.image_front}"
+                                    class="product-card-image-front img-responsive center-block"
+                                    alt="${product.title}" />
+                            </picture>
+                            <picture>
+                                <img src="${product.image_back}"
+                                    class="product-card-image-back img-responsive center-block"
+                                    alt="${product.title}" />
+                            </picture>
+                        </div>
+                        <h4 class="product-single__series">
+                            ${product.series}
+                        </h4>
+                        <h3 class="product-card__title">
+                            ${product.title}
+                        </h3>
+                        <div class="product-price">
+                            <strong>
+                                ${formatPrice(product.price)}
+                            </strong>
+                        </div>
+                    </div>
+                    <form action="/cart/add" method="post" enctype="multipart/form-data"
+                        class="hidden-md variants form-nut-grid form-ajaxtocart"
+                        data-id="product-actions-35855176">
+                        <div class="product-card__actions">
+                            <a class="button ajax_addtocart add_to_cart" href="${product.url}">Thêm vào giỏ hàng</a>
+                        </div>
+                    </form>
+                </div>
+            `;
+                row.appendChild(productItem);
+            }
+        });
+        productList.appendChild(row);
+    }
+
+    function loadTagSort() {
+        const tagFiltersContainer = document.getElementById('tagFilters');
+        const priceFiltersContainer = document.getElementById('priceFilters');
+        tagFiltersContainer.innerHTML = '';
+        tagSort.Tags.forEach(tag => {
+            const li = document.createElement('li');
+            li.className = 'filter-item filter-item--check-box filter-item--green';
+            li.innerHTML = `
+                    <span>
+                        <label for="${tag.id}">
+                            <input type="checkbox" id="${tag.id}" onchange="toggleFilter(this)"
+                                data-group="tag2" data-field="tags" data-text="${tag.value}" value="(${tag.value})"
+                                data-operator="OR">
+                            <i class="fa"></i>
+                            ${tag.label}
+                        </label>
+                    </span>
+                `;
+            tagFiltersContainer.appendChild(li);
+        });
+
+        tagSort.priceRanges.forEach(price => {
+            const li = document.createElement('li');
+            li.className = 'filter-item filter-item--check-box filter-item--green';
+            li.innerHTML = `
+                    <span>
+                        <label for="${price.id}">
+                            <input type="checkbox" id="${price.id}" onchange="toggleFilter(this)"
+                                data-group="Khoảng giá" data-field="price_min" data-text="${price.label}"
+                                value="(${price.value})" data-operator="OR">
+                            <i class="fa"></i>
+                            ${price.label}
+                        </label>
+                    </span>
+                `;
+            priceFiltersContainer.appendChild(li);
+        });
+    }
+
+    function formatPrice(price) {
+        return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+    }
+    function sortby(sort) {
+        if (sort === 'name-asc') {
+            products.sort((a, b) => a.title.localeCompare(b.title));
+        }
+        if (sort === 'name-desc') {
+            products.sort((a, b) => b.title.localeCompare(a.title));
+        }
+        if (sort === 'price-asc') {
+            products.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        }
+        if (sort === 'price-desc') {
+            products.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+        }
+        loadProductList();
+    }
+    
+    loadProductList();
+    loadTagSort();
+</script>
+
+
 <%- include('../includes/footer') %>

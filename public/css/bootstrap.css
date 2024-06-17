@@ -5793,7 +5793,7 @@ button.close {
   margin: 1px;
   text-indent: -999px;
   cursor: pointer;
-  background-color: #000\9;
+  background-color: #000;
   background-color: transparent;
   border: 1px solid #fff;
   border-radius: 10px
@@ -6363,7 +6363,8 @@ button.close {
 
 .owl-theme .owl-dots .owl-dot {
   display: inline-block;
-  zoom:1;*display: inline
+  zoom:1;
+  display: inline
 }
 
 .owl-theme .owl-dots .owl-dot span {

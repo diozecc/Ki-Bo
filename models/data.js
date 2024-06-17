@@ -40,5 +40,4 @@ class Services {
         await this.fetchData(`product/${product.id}`, 'PUT', product);
     }
 }
-
 module.exports = { Services };

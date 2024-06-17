@@ -1,48 +1,6 @@
 <%- include('./hea') %>
 <section class="products-view products-view-grid row">
-    <div id="product-container">
-        <%product.forEach((product)=> {
-            if(product.class === productType ){ %>
-            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                <div class="product-card">
-                    <a class="product-url" href="<%= product.url %>"
-                        title="<%= product.title %>"></a>
-                    <div class="product-card__inner">
-                        <div class="product-card__image">
-                            <picture>
-                                <img src="<%= product.image_front %>"
-                                    class="product-card-image-front img-responsive center-block"
-                                    alt="<%= product.title %>" />
-                            </picture>
-                            <picture>
-                                <img src="<%= product.image_back %>"
-                                    class="product-card-image-back img-responsive center-block"
-                                    alt="<%= product.title %>" />
-                            </picture>
-                        </div>
-                        <h4 class="product-single__series">
-                            <%= product.series %>
-                        </h4>
-                        <h3 class="product-card__title">
-                            <%= product.title %>
-                        </h3>
-                        <div class="product-price">
-                            <strong>
-                                <%= product.price %>
-                            </strong>
-                        </div>
-                    </div>
-                    <form action="/cart/add" method="post" enctype="multipart/form-data"
-                        class="hidden-md variants form-nut-grid form-ajaxtocart"
-                        data-id="product-actions-35855176">
-                        <div class="product-card__actions">
-                            <a class="button ajax_addtocart add_to_cart" href="<%= product.url %>">Thêm vào giỏ hàng</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <% }}) %>
-    </div>
+    <div id="product-container"></div>
     <div class="clearfix"></div>
 </section>
 </div>
