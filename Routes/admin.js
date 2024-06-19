@@ -2,7 +2,6 @@ const express = require('express');
 const admin = express.Router();
 const adminController = require('../controller/controller');
 
-// Define routes
 admin.get('/login', adminController.getAdmin);
 admin.post('/login', adminController.postAdmin);
 admin.get('/add-product', adminController.getAddProduct);

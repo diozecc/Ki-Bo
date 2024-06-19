@@ -1,0 +1,264 @@
+<%- include('../includes/header') %>
+    <link rel="stylesheet" href="/css/productdetail/appbulk-available-notice.css">
+    <link rel="stylesheet" href="/css/productdetail/bootstrap.scss.css">
+    <link rel="stylesheet" href="/css/productdetail/bpr-products-module.css">
+    <link rel="stylesheet" href="/css/productdetail/bpr.min.css">
+    <link rel="stylesheet" href="/css/productdetail/evo-products.scss.css">
+    <link rel="stylesheet" href="/css/productdetail/evo-watch.scss.css">
+    <link rel="stylesheet" href="/css/productdetail/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/productdetail/iwish.css">
+    <link rel="stylesheet" href="/css/productdetail/picbox.scss.css">
+    <link rel="stylesheet" href="/css/productdetail/productReviews.min.css">
+    <link rel="stylesheet" href="/css/productdetail/slick.css">
+    <%- include('../includes/nav') %>
+    <section class="product margin-top-30" itemscope="" itemtype="http://schema.org/Product">
+        <div class="container">
+            <div class="row details-product padding-bottom-10">
+                <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
+                    <div class="relative product-image-block">
+
+                        <div class="slider-big-video clearfix margin-bottom-10">
+                            <div class="slider slider-for slick-initialized slick-slider">
+                                <div aria-live="polite" class="slick-list draggable" style="height: 565px;">
+                                    <div class="slick-track" style="opacity: 1; width: 3955px;" role="listbox">
+                                        <a href="//bizweb.dktcdn.net/thumb/1024x1024/100/436/596/products/1-1716196109526.png?v=1716196116953" title="Click để xem" class="slick-slide slick-current slick-active"
+                                        data-slick-index="0" aria-hidden="false" style="width: 565px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;" tabindex="-1" role="option"
+                                        aria-describedby="slick-slide10" rel="lightbox-demo">
+                                            <img src="<%= productdetail[0].image_front %>" alt="<%= productdetail[0].title %>" class="img-responsive center-block">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6 details-pro">
+                    <div class="product-top clearfix">
+                        <h1 class="title-head"><%= productdetail[0].title %></h1>
+                    </div>
+                    <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                        <link itemprop="url" href="https://kicap.vn/bo-keycap-cherry-jkdk-red-on-black">
+                        <meta itemprop="priceValidUntil" content="2030-11-05">
+                        <div class="price-box clearfix">
+                            <div class="special-price">
+                                <span class="price product-price"><%= productdetail[0].price %></span>
+                                <meta itemprop="price" content="1030000">
+                                <meta itemprop="priceCurrency" content="VND">
+                            </div>
+                        </div>
+                        <div class="inventory_quantity">
+                            <span class="stock-brand-title">Tình trạng:</span>
+                            <span class="a-stock a1">
+                                <link itemprop="availability" href="http://schema.org/InStock">Còn hàng
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-product">
+                        <form enctype="multipart/form-data" id="add-to-cart-form" action="/cart/add" method="post" class="clearfix form-inline has-validation-callback MultiFile-intercepted">
+                            <div class="box-variant clearfix  hidden ">
+                                <input type="hidden" name="variantId" value="117367886">
+                            </div>
+                            <div class="clearfix form-group ">
+                                <div class="qty-ant clearfix custom-btn-number">
+                                    <label>Số lượng:</label>
+                                    <div class="custom custom-btn-numbers form-control">
+                                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN(qty) & qty > 1 ) result.value--;return false;" class="btn-minus btn-cts"
+                                        type="button">–</button>
+                                        <input type="text" class="qty input-text" id="qty" name="quantity" size="4" value="1" maxlength="3">
+                                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN(qty)) result.value++;return false;" class="btn-plus btn-cts" type="button">+</button>
+                                    </div>
+                                </div>
+                                <div class="btn-mua">
+                                    <button type="submit" data-role="addtocart" class="btn btn-lg btn-gray btn-cart btn_buy add_to_cart">
+                                        <span class="txt-main">Thêm vào giỏ hàng</span>
+                                        <span class="text-add">Giao hàng toàn quốc</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <br>
+                            <a class="iWishAdd iwishAddWrapper" href="javascript:;" data-customer-id="0" data-product="35855176" data-variant="117367886"><span
+                                    class="iwishAddChild iwishAddBorder"><img class="iWishImg"
+                                        src="https://wishlists.sapoapps.vn/content/images/iwish_add.png"></span><span
+                                    class="iwishAddChild">Thêm vào yêu thích</span></a>
+                            <a class="iWishAdded iwishAddWrapper iWishHidden" href="javascript:;" data-customer-id="0" data-product="35855176" data-variant="117367886"><span
+                                    class="iwishAddChild iwishAddBorder"><img class="iWishImg"
+                                        src="https://wishlists.sapoapps.vn/content/images/iwish_added.png"></span><span
+                                    class="iwishAddChild">Đã yêu thích</span></a>
+
+                            <div class="ab-available-notice-button ab-hide" data-ab-product-id="35855176">
+                                <button class="ab-notice-btn" title="" type="button" onclick="ABAvailableNotice.noticeButtonClick()">
+                                    BÁO KHI CÓ HÀNG
+                                </button>
+                            </div>
+                        </form>
+                        <div class="md-discount-box-inform" id="md-discount-box-inform"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="hotline_product">
+                        Gọi đặt mua: <a href="tel:0369161095" title="0369161095">0369161095</a> <span>(miễn phí 8:30
+                            - 21:30).</span>
+                    </div>
+                    <div class="module_service_details clearfix">
+                        <div class="item_service clearfix">
+                            <img src="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/policy_images_1.svg?1717858553227" data-lazyload="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/policy_images_1.svg?1717858553227"
+                            alt="Join discord KICAP để nhận thông báo mới nhất!">
+                            <h4>Join <a href="https://discord.gg/6rhGFpgQ6r" title="Discord" rel="nofollow"
+                                    target="_blank">discord KICAP</a> để nhận thông báo mới nhất!</h4>
+                        </div>
+                        <div class="item_service clearfix">
+                            <img src="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/policy_images_2.svg?1717858553227" data-lazyload="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/policy_images_2.svg?1717858553227"
+                            alt="FREESHIP với đơn hàng từ 800.000đ">
+                            <h4><strong>FREESHIP</strong> với đơn hàng <strong>từ 800.000đ</strong></h4>
+                        </div>
+                        <div class="item_service clearfix">
+                            <img src="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/policy_images_3.svg?1717858553227" data-lazyload="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/policy_images_3.svg?1717858553227"
+                            alt="Chính sách bảo hành">
+                            <h4><a href="/chinh-sach-bao-hanh" title="Chính sách bảo hành" rel="nofollow">Chính sách
+                                    bảo hành</a></h4>
+                        </div>
+                        <div class="item_service clearfix">
+                            <img src="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/policy_images_4.svg?1717858553227" data-lazyload="//bizweb.dktcdn.net/100/436/596/themes/834446/assets/policy_images_4.svg?1717858553227"
+                            alt="Cam kết 100% chính hãng">
+                            <h4>Cam kết <strong>100% chính hãng</strong></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12 margin-top-20">
+                    <div class="product-tab e-tabs padding-bottom-10 evo-tab-product-mobile">
+                        <ul class="tabs tabs-title clearfix hidden-xs">
+                            <li class="tab-link current" data-tab="tab-1">Mô tả</li>
+
+                            <li class="tab-link" data-tab="tab-3">Nhận xét sản phẩm</li>
+                        </ul>
+
+                        <div id="tab-1" class="tab-content active current">
+                            <a class="evo-product-tabs-header hidden-lg hidden-md hidden-sm" href="javascript:void(0);">
+                                <span>Mô tả</span>
+                            </a>
+                            <div class="rte">
+                                <table border="1" cellpadding="1" cellspacing="1">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Thông số kỹ thuật</th>
+                                            <th scope="col">Giá trị</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>&nbsp;Profile</td>
+                                            <td>&nbsp;Cherry</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;Chất liệu</td>
+                                            <td>&nbsp;PBT dye-sub</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;Số lượng phím</td>
+                                            <td>&nbsp;155</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;Độ dày</td>
+                                            <td>&nbsp;1.4mm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;Tương thích</td>
+                                            <td>&nbsp;Hầu hết các bàn phím cơ fullsize</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="tab-3" class="tab-content">
+                            <a class="evo-product-tabs-header hidden-lg hidden-md hidden-sm" href="javascript:void(0);">
+                                <span>Nhận xét sản phẩm</span>
+                            </a>
+                            <div class="rte">
+                                <div id="sapo-product-reviews" class="sapo-product-reviews" data-id="35855176">
+                                    <div>
+                                        <div id="sapo-product-reviews-noitem"><div><div class="content">
+                                            <p>Hiện tại sản phẩm chưa có đánh giá nào</p>
+                                        </div></div></div>
+                                        <div id="popup-bpr-form_35855176" class="popup-bpr-form jquerymodal">
+                                            <div class="jquerymodal-content">
+                                                <div class="jquerymodal-body">
+                                                    <div class="sapo-product-reviews-form">
+                                                        <div>
+                                                            <form method="post" action="https://newproductreviews.sapoapps.vn/reviews/create" id="sapo-product-reviews-frm" name="sapo-product-reviews-frm" class="MultiFile-intercepted">
+                                                                <div class="title-form">Đánh giá sản phẩm</div>
+                                                                <div class="review-product-name">Bộ keycap cherry JKDK Red on Black</div>
+                                                                <div class="bpr-form-rating">
+                                                                    <div class="form-group">
+                                                                        <label>Đánh giá của bạn về sản phẩm:</label>
+                                                                        <div id="dvRating" class="sapo-product-reviews-star" title="Not rated yet!">
+                                                                            <input name="score" type="hidden" readonly="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <input type="hidden" name="rating" id="review_rate" value="5">
+                                                                    <span class="bpr-form-message-error"></span>
+                                                                </div>
+                                                                <div class="bpr-form-contact">
+                                                                    <div class="form-group form-group__multiple">
+                                                                        <div class="bpr-form-contact-name require">
+                                                                            <input type="text" maxlength="100" id="review_author" name="author" value="" placeholder="Nhập họ tên của bạn">
+                                                                            <span class="bpr-form-message-error"></span>
+                                                                        </div>
+                                                                        <div class="bpr-form-contact-email require">
+                                                                            <input type="text" maxlength="50" id="review_email" name="email" value="" placeholder="Nhập email của bạn">
+                                                                            <span class="bpr-form-message-error"></span>
+                                                                        </div>
+                                                                        <div class="bpr-form-contact-phone require">
+                                                                            <input type="tel" maxlength="15" id="review_phone" name="phone" value="" placeholder="Nhập số điện thoại của bạn">
+                                                                            <span class="bpr-form-message-error"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group__textarea">
+                                                                        <div class="form-group">
+                                                                            <div class="bpr-form-review-body">
+                                                                                <textarea maxlength="1000" id="review_body" name="body" rows="5" placeholder="Nhập nội dung đánh giá của bạn về sản phẩm này"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div id="fileAttach" class="bpr-file-attach option">
+                                                                            <label class="next-label" for="inputFileAttach">
+                                                                                <span>Đính kèm hình ảnh (chọn tối đa
+                                                                                    3 hình)</span>
+                                                                            </label>
+                                                                            <div class="MultiFile-wrap" id="inputFileAttach-wrap">
+                                                                                <input style="color:#fff;opacity:0;cursor:pointer;" type="file" id="inputFileAttach" name="file" class="with-preview MultiFile-applied" value="">
+                                                                                <div class="MultiFile-list" id="inputFileAttach_list"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="bpr-form-actions">
+                                                                            <button type="button" onclick="BPR.submitForm(); return false;" class="bpr-button-submit"><i class="fa fa-spinner fa-pulse" aria-hidden="true"></i><span>Gửi
+                                                                                    đánh giá</span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <span class="bpr-form-message-error bpr-form-message-error-body"></span>
+                                                                    <span class="bpr-form-message-error bpr-form-message-error-file"></span>
+                                                                </div>
+                                                                <div class="bpr-form-review-error">
+                                                                    <p class="error"></p>
+                                                                </div>
+                                                                <div class="bpr-form-actions">
+                                                                    <button type="button" onclick="BPR.submitForm(); return false;" class="bpr-button-submit"><i class="fa fa-spinner fa-pulse" aria-hidden="true"></i><span>Gửi đánh
+                                                                            giá</span>
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    </section>
+<%- include('./end') %>

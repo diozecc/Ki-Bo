@@ -4,7 +4,16 @@ const fs = require('fs')
 const path = require('path')
 const sort = path.join(path.dirname(process.mainModule.filename), 'data', 'sort.json')
 const sortList = require('../data/sort.json')
-
+const productTitles = {
+    "keycap-cherry": "Keycap Cherry",
+    "keycap-moa": "Keycap MOA",
+    "keycap-sa": "Keycap SA",
+    "keycap-xda": "Keycap XDA",
+    "keycap-oem": "Keycap OEM",
+    "ban-phim-co": "Bàn Phím Cơ",
+    "pre-order": "Pre-Order",
+    "chuot": "Chuột"
+}
 
 let productList = null
 
@@ -30,38 +39,34 @@ exports.getShop = async (req, res, next) => {;
 
 exports.getKeycapBO = async (req, res, next) => {
     try {
-        const nav = await service.getNav()
-        const productType = req.params.type
-        const productTitles = {
-            "keycap-cherry": "Keycap Cherry",
-            "keycap-moa": "Keycap MOA",
-            "keycap-sa": "Keycap SA",
-            "keycap-xda": "Keycap XDA",
-            "keycap-oem": "Keycap OEM",
-            "ban-phim-co": "Bàn Phím Cơ",
-            "pre-order": "Pre-Order",
-            "chuot": "Chuột"
-        }
-        const pageTitle = productTitles[productType]
-        const dataPage = []
+        const nav = await service.getNav();
+        const productType = req.params.type;
+        const pageTitle = productTitles[productType];
+        const dataPage = [];
         nav.forEach(e => {
             if (e.slug === "keycap-bo") {
                 e.items.forEach(item => {
                     if (item.type === productType) {
-                        dataPage.push(e)
+                        dataPage.push(e);
                     }
-                })
+                });
             } else if (e.slug === productType) {
-                dataPage.push(e)
+                dataPage.push(e);
             }
-        })
-
-        res.render('products/products', { pageTitle, nav, product: productList, productType, dataPage, sortList })
+        });
+        productdetail = productList.filter(e => e.url === productType);
+        if (productTitles[productType]) {
+            res.render('products/products', { pageTitle, nav, product: productList, productType, dataPage, sortList });
+        } else if(productdetail != 0){
+            const pageTitle = productdetail[0].title;
+            res.render('products/product-detail', { pageTitle, nav, product: productList, productType, dataPage, sortList, productdetail });
+        }else{
+            next();
+        }
     } catch (error) {
-        next(error)
+        next(error);
     }
-}
-
+};
 exports.getAdmin = async (req, res, next) => {
     try {
         const nav = await service.getNav()
@@ -131,6 +136,21 @@ exports.getDeteleProduct = async (req, res, next) => {
         res.redirect('/admin/add-product')
     } catch (error) {
         next(error)
+    }
+}
+
+exports.getIntroduction = async (req, res, next) => {
+    try {
+            const nav = await service.getNav();
+            const dataPage = [];
+            nav.forEach(e => {
+                if (e.slug === "gioi-thieu") {
+                    dataPage.push(e);
+                }
+            });
+        res.render('introduction', { pageTitle: 'Giới Thiệu', nav, dataPage });
+    } catch (error) {
+        next(error);
     }
 }
 

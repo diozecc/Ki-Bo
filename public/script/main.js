@@ -262,3 +262,19 @@ WebFontConfig = {
 }
 )();
 
+function formatCurrency(price) {
+    // Chuyển đổi chuỗi giá tiền thành số nguyên
+    let num = parseInt(price, 10);
+
+    // Sử dụng phương thức toLocaleString để định dạng lại giá tiền
+    return num.toLocaleString('vi-VN') + '₫';
+}
+
+// Sử dụng hàm formatCurrency để định dạng giá tiền
+document.addEventListener("DOMContentLoaded", function() {
+    let priceElements = document.querySelectorAll('.price.product-price');
+    priceElements.forEach(function(element) {
+        let price = element.textContent.trim();
+        element.textContent = formatCurrency(price);
+    });
+});

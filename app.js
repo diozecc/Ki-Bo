@@ -11,5 +11,6 @@ app.use(express.static(path.join(rootDir.path, 'public')))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/admin',adminRouter)
 app.use(require('./Routes/shop').Router)
+app.use(require('./controller/controller').get404)
 
 app.listen(3000)
